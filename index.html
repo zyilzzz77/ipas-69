@@ -3,595 +3,482 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPAS – Lembaga Sosial</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>Presentasi Lembaga Sosial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --card: #1c2333;
-    --accent: #f97316;
-    --accent2: #fb923c;
-    --text: #e6edf3;
-    --muted: #8b949e;
-    --border: #30363d;
-    --green: #3fb950;
-    --red: #f85149;
-  }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+body{
+    overflow:hidden;
+    background:black;
+    color:white;
+}
 
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    padding: 80px 24px 60px;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249,115,22,.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .badge {
-    display: inline-block;
-    background: rgba(249,115,22,.12);
-    border: 1px solid rgba(249,115,22,.35);
-    color: var(--accent2);
-    font-size: .75rem;
-    font-weight: 500;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    padding: 5px 16px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 7vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    color: var(--muted);
-    font-size: 1rem;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  .scroll-hint {
-    margin-top: 36px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-  }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-  .dot.active { background: var(--accent); }
+/* BACKGROUND */
 
-  /* ── NAV TABS ── */
-  .tabs {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 0 24px 40px;
-    flex-wrap: wrap;
-  }
-  .tab-btn {
-    padding: 9px 22px;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-size: .875rem;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .tab-btn:hover { border-color: var(--accent); color: var(--accent2); }
-  .tab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-3;
 
-  /* ── SECTIONS ── */
-  .section { display: none; padding: 0 24px 80px; max-width: 860px; margin: 0 auto; }
-  .section.visible { display: block; animation: fadeUp .4s ease; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    background:
+    radial-gradient(circle at top left,#ff8800 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#ff6600 0%,transparent 30%),
+    linear-gradient(135deg,#000,#111,#ff5e00);
+}
 
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 6px;
-    color: #fff;
-  }
-  .section-sub { color: var(--muted); font-size: .9rem; margin-bottom: 32px; }
+/* GRID */
 
-  /* ── CARDS ── */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px 24px;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color .2s, transform .2s;
-  }
-  .card:hover { border-color: rgba(249,115,22,.4); transform: translateY(-2px); }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity .2s;
-  }
-  .card:hover::before { opacity: 1; }
+.grid{
+    position:absolute;
+    inset:0;
 
-  .card-label {
-    font-size: .7rem;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--accent2);
-    margin-bottom: 6px;
-  }
-  .card h3 { font-size: 1.05rem; font-weight: 500; color: #fff; margin-bottom: 8px; }
-  .card p, .card li { color: var(--muted); font-size: .9rem; }
-  .card ul { padding-left: 18px; }
-  .card li { margin-bottom: 4px; }
+    background:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
 
-  /* two-col grid */
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media(max-width:600px){ .grid2 { grid-template-columns: 1fr; } }
+    background-size:60px 60px;
 
-  /* ── KARAKTERISTIK CHIPS ── */
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-  .chip {
-    padding: 6px 14px;
-    border-radius: 8px;
-    background: rgba(249,115,22,.1);
-    border: 1px solid rgba(249,115,22,.25);
-    color: var(--accent2);
-    font-size: .82rem;
-  }
+    animation:gridMove 10s linear infinite;
+}
 
-  /* ── TABLE ── */
-  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-  th { text-align: left; padding: 10px 14px; background: rgba(249,115,22,.08); color: var(--accent2); font-weight: 500; border-bottom: 1px solid var(--border); }
-  td { padding: 10px 14px; border-bottom: 1px solid rgba(48,54,61,.7); color: var(--muted); vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: rgba(249,115,22,.04); }
+/* PARTICLES */
 
-  /* ── QUIZ ── */
-  .quiz-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    margin-bottom: 20px;
-  }
-  .q-num { font-size: .72rem; font-weight: 500; letter-spacing: .1em; color: var(--accent2); text-transform: uppercase; margin-bottom: 10px; }
-  .q-text { font-size: 1rem; color: #fff; margin-bottom: 20px; font-weight: 500; }
-  .options { display: flex; flex-direction: column; gap: 10px; }
-  .opt-btn {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 16px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-size: .9rem;
-    cursor: pointer;
-    text-align: left;
-    transition: all .15s;
-  }
-  .opt-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--text); }
-  .opt-btn .opt-letter {
-    min-width: 28px; height: 28px;
-    border-radius: 6px;
-    background: var(--border);
-    color: var(--muted);
-    display: grid; place-items: center;
-    font-size: .8rem; font-weight: 600;
-    transition: all .15s;
-  }
-  .opt-btn:hover:not(:disabled) .opt-letter { background: var(--accent); color: #fff; }
-  .opt-btn.correct { border-color: var(--green); color: var(--text); background: rgba(63,185,80,.08); }
-  .opt-btn.correct .opt-letter { background: var(--green); color: #fff; }
-  .opt-btn.wrong { border-color: var(--red); color: var(--red); background: rgba(248,81,73,.08); }
-  .opt-btn.wrong .opt-letter { background: var(--red); color: #fff; }
-  .opt-btn:disabled { cursor: default; }
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
 
-  .explanation {
-    margin-top: 14px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    background: rgba(63,185,80,.08);
-    border: 1px solid rgba(63,185,80,.2);
-    color: var(--green);
-    font-size: .875rem;
-    display: none;
-  }
-  .explanation.show { display: block; }
+.particles span{
+    position:absolute;
+    border-radius:50%;
+    background:orange;
+    box-shadow:0 0 20px orange;
 
-  /* Score banner */
-  .score-banner {
-    background: linear-gradient(135deg, rgba(249,115,22,.15), rgba(249,115,22,.05));
-    border: 1px solid rgba(249,115,22,.3);
-    border-radius: 14px;
-    padding: 24px;
-    text-align: center;
-    margin-bottom: 28px;
-    display: none;
-  }
-  .score-banner.show { display: block; animation: fadeUp .5s ease; }
-  .score-banner .score-num { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); font-weight: 900; }
-  .score-banner p { color: var(--muted); margin-top: 4px; }
+    animation:particleMove linear infinite;
+}
 
-  .reset-btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 28px;
-    border-radius: 100px;
-    border: 1px solid var(--accent);
-    background: transparent;
-    color: var(--accent2);
-    font-family: 'DM Sans', sans-serif;
-    font-size: .9rem;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .reset-btn:hover { background: var(--accent); color: #fff; }
+/* SLIDES */
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    transition:1s;
+}
+
+/* INTRO */
+
+.icons{
+    display:flex;
+    gap:35px;
+    margin-bottom:40px;
+}
+
+.icons div{
+    font-size:70px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.icons div:nth-child(2){
+    animation-delay:.5s;
+}
+
+.icons div:nth-child(3){
+    animation-delay:1s;
+}
+
+.icons div:nth-child(4){
+    animation-delay:1.5s;
+}
+
+.title{
+    font-size:90px;
+    font-weight:800;
+    text-align:center;
+
+    text-shadow:
+    0 0 15px orange,
+    0 0 40px orange;
+
+    animation:zoomIn 2s ease;
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:28px;
+    color:#ffd8a8;
+}
+
+.start-btn{
+    margin-top:50px;
+
+    padding:16px 45px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff9500,#ff5e00);
+
+    color:white;
+    font-size:18px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:0 0 20px orange;
+
+    transition:.4s;
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+}
+
+/* SLIDE 2 */
+
+#slide2{
+    transform:translateX(100%);
+}
+
+.team-title{
+    font-size:60px;
+    margin-bottom:50px;
+
+    text-shadow:0 0 20px orange;
+}
+
+.cards{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* CARD */
+
+.card{
+    width:300px;
+
+    background:rgba(255,255,255,.08);
+
+    border:2px solid rgba(255,165,0,.4);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    padding:25px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.5s;
+
+    box-shadow:
+    0 0 25px rgba(255,140,0,.4);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.card::before{
+    content:'';
+
+    position:absolute;
+    inset:-2px;
+
+    background:linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,165,0,.5),
+    transparent
+    );
+
+    animation:shine 3s linear infinite;
+}
+
+/* LEADER */
+
+.leader{
+    border:2px solid gold;
+
+    box-shadow:
+    0 0 40px gold;
+}
+
+/* PROFILE IMAGE */
+
+.profile-img{
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid orange;
+
+    box-shadow:
+    0 0 25px orange;
+
+    margin-bottom:20px;
+
+    position:relative;
+    z-index:2;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+/* NAME */
+
+.name{
+    font-size:28px;
+    font-weight:700;
+
+    position:relative;
+    z-index:2;
+}
+
+/* ROLE */
+
+.role{
+    margin-top:12px;
+
+    color:#ffb347;
+
+    font-size:18px;
+
+    position:relative;
+    z-index:2;
+}
+
+/* ANIMATIONS */
+
+@keyframes zoomIn{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+@keyframes particleMove{
+    from{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-10vh) scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes gridMove{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(60px);
+    }
+}
+
+@keyframes shine{
+    from{
+        transform:translateX(-100%);
+    }
+    to{
+        transform:translateX(100%);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .title{
+        font-size:55px;
+    }
+
+    .team-title{
+        font-size:40px;
+    }
+
+    .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="hero">
-  <div class="badge">Proyek IPAS · SMK 69 Jakarta</div>
-  <h1>Lembaga Sosial</h1>
-  <p>Ringkasan materi Bab 6 — Ilmu Pengetahuan Alam dan Sosial</p>
-  <div class="scroll-hint">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-</div>
+<div class="bg"></div>
+<div class="grid"></div>
 
-<div class="tabs">
-  <button class="tab-btn active" onclick="showSection('pengertian', this)">Pengertian</button>
-  <button class="tab-btn" onclick="showSection('karakteristik', this)">Karakteristik</button>
-  <button class="tab-btn" onclick="showSection('fungsi', this)">Fungsi & Jenis</button>
-  <button class="tab-btn" onclick="showSection('klasifikasi', this)">Klasifikasi</button>
-  <button class="tab-btn" onclick="showSection('kuis', this)">Kuis 🎯</button>
-</div>
+<!-- PARTICLES -->
+<div class="particles" id="particles"></div>
 
-<!-- ───────────── PENGERTIAN ───────────── -->
-<section id="pengertian" class="section visible">
-  <h2 class="section-title">Pengertian Lembaga Sosial</h2>
-  <p class="section-sub">Definisi menurut para ahli & kesimpulan umum</p>
+<!-- SLIDE 1 -->
 
-  <div class="card">
-    <div class="card-label">Kesimpulan</div>
-    <p>Lembaga sosial adalah <strong style="color:#fff">kumpulan norma dan pranata sosial</strong> yang mengatur jalannya interaksi atau kegiatan sosial dalam masyarakat. Sifatnya abstrak karena berupa norma-norma.</p>
-  </div>
+<section class="slide" id="slide1">
 
-  <div class="grid2">
-    <div class="card">
-      <div class="card-label">Paul Horton & Chester L. Hunt</div>
-      <p>Sistem norma-norma sosial dan hubungan yang menyatukan nilai-nilai dan prosedur tertentu untuk memenuhi kebutuhan dasar masyarakat.</p>
+    <div class="icons">
+        <div>🏫</div>
+        <div>👨‍👩‍👧</div>
+        <div>⛪</div>
+        <div>🤝</div>
     </div>
-    <div class="card">
-      <div class="card-label">Peter L. Berger</div>
-      <p>Prosedur yang menyebabkan perbuatan manusia ditekan oleh pola tertentu dan dipaksa bergerak sesuai keinginan masyarakat.</p>
+
+    <div class="title">
+        LEMBAGA SOSIAL
     </div>
-    <div class="card">
-      <div class="card-label">Mayor Polak</div>
-      <p>Kompeks atau sistem peraturan dan adat istiadat yang mempertahankan nilai-nilai penting.</p>
+
+    <div class="subtitle">
+        Presentasi Kelompok IPAS
     </div>
-    <div class="card">
-      <div class="card-label">Koentjaraningrat</div>
-      <p>Sistem tata kelakuan dan hubungan yang berpusat pada aktivitas untuk memenuhi kompleksitas kebutuhan khusus dalam kehidupan manusia.</p>
-    </div>
-  </div>
+
+    <button class="start-btn" onclick="nextSlide()">
+        MULAI PRESENTASI
+    </button>
+
 </section>
 
-<!-- ───────────── KARAKTERISTIK ───────────── -->
-<section id="karakteristik" class="section">
-  <h2 class="section-title">Karakteristik Lembaga Sosial</h2>
-  <p class="section-sub">Ciri-ciri yang membedakan lembaga sosial dari kelompok biasa</p>
+<!-- SLIDE 2 -->
 
-  <div class="card">
-    <div class="chips">
-      <span class="chip">🏳️ Punya Simbol</span>
-      <span class="chip">📜 Tata Tertib & Tradisi</span>
-      <span class="chip">⏳ Usia Lebih Lama</span>
-      <span class="chip">🔧 Alat Kelengkapan</span>
-      <span class="chip">💡 Ideologi</span>
-      <span class="chip">🛡️ Daya Tahan Tinggi</span>
+<section class="slide" id="slide2">
+
+    <div class="team-title">
+        PERKENALAN KELOMPOK
     </div>
-  </div>
 
-  <div class="grid2">
-    <div class="card">
-      <h3>🏳️ Mempunyai Simbol</h3>
-      <p>Menjadi ciri khas dan identitas bagi anggotanya. Contoh: bendera partai politik.</p>
+    <div class="cards">
+
+        <!-- NAYLA -->
+
+        <div class="card leader">
+
+            <img src="images/nayla.jpeg" alt="Nayla Kanya Putri" class="profile-img">
+
+            <div class="name">
+                Nayla Kanya Putri
+            </div>
+
+            <div class="role">
+                Leader
+            </div>
+
+        </div>
+
+        <!-- YOHANES -->
+
+        <div class="card">
+
+            <img src="images/yohanes.jpeg" alt="Yohanes Martin Anugrah Sitorus" class="profile-img">
+
+            <div class="name">
+                Yohanes Martin
+                Anugrah Sitorus
+            </div>
+
+            <div class="role">
+                Anggota
+            </div>
+
+        </div>
+
+        <!-- MUHAMMAD -->
+
+        <div class="card">
+
+            <img src="images/prazaki.jpeg" alt="Muhammad Putera Prazaki" class="profile-img">
+
+            <div class="name">
+                Muhammad Putera
+                Prazaki
+            </div>
+
+            <div class="role">
+                Anggota
+            </div>
+
+        </div>
+
     </div>
-    <div class="card">
-      <h3>📜 Tata Tertib & Tradisi</h3>
-      <p>Bisa tertulis maupun tidak, berfungsi sebagai pedoman anggota. Contoh: aturan menghormati orang lebih tua dalam keluarga.</p>
-    </div>
-    <div class="card">
-      <h3>⏳ Usia Lebih Lama</h3>
-      <p>Diwariskan dari generasi ke generasi. Contoh: usia koperasi lebih lama dari usia anggotanya.</p>
-    </div>
-    <div class="card">
-      <h3>🔧 Alat Kelengkapan</h3>
-      <p>Punya perlengkapan untuk mencapai tujuan. Contoh: buku adalah alat kelengkapan sekolah.</p>
-    </div>
-    <div class="card">
-      <h3>💡 Mempunyai Ideologi</h3>
-      <p>Ideologi yang dianggap ideal bagi para anggota pendukungnya.</p>
-    </div>
-    <div class="card">
-      <h3>🛡️ Tingkat Daya Tahan</h3>
-      <p>Tidak mudah hilang. Contoh: sekolah punya kurikulum untuk menjaga keberlangsungannya.</p>
-    </div>
-  </div>
-</section>
 
-<!-- ───────────── FUNGSI & JENIS ───────────── -->
-<section id="fungsi" class="section">
-  <h2 class="section-title">Fungsi & Jenis Lembaga Sosial</h2>
-  <p class="section-sub">Tujuan, fungsi manifes/laten, serta jenis lembaga sosial</p>
-
-  <div class="card">
-    <div class="card-label">Dua Fungsi Utama</div>
-    <div class="grid2" style="margin-top:12px">
-      <div>
-        <h3 style="color:var(--accent2);margin-bottom:6px">Fungsi Manifes</h3>
-        <p>Fungsi yang <em>disadari</em> dan diharapkan banyak orang. Contoh: keluarga sebagai tempat internalisasi nilai dan norma.</p>
-      </div>
-      <div>
-        <h3 style="color:var(--accent2);margin-bottom:6px">Fungsi Laten</h3>
-        <p>Fungsi yang <em>tidak disadari</em>. Contoh: sekolah juga menjauhkan anak dari pernikahan dini.</p>
-      </div>
-    </div>
-  </div>
-
-  <table style="border-radius:14px;overflow:hidden;margin-bottom:16px">
-    <thead>
-      <tr>
-        <th>Lembaga</th>
-        <th>Fungsi Utama</th>
-        <th>Contoh</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong style="color:#fff">Keluarga</strong></td>
-        <td>Reproduksi, ekonomi, proteksi, sosialisasi, afeksi</td>
-        <td>Keluarga inti, extended family</td>
-      </tr>
-      <tr>
-        <td><strong style="color:#fff">Pendidikan</strong></td>
-        <td>Menyiapkan individu, melestarikan budaya, sosialisasi keterampilan</td>
-        <td>Sekolah (formal), kursus (nonformal), keluarga (informal)</td>
-      </tr>
-      <tr>
-        <td><strong style="color:#fff">Ekonomi</strong></td>
-        <td>Mengatur produksi, distribusi, pelayanan jasa</td>
-        <td>Pasar, bank, koperasi</td>
-      </tr>
-      <tr>
-        <td><strong style="color:#fff">Agama</strong></td>
-        <td>Pedoman hidup, identitas, tata kelakuan agama</td>
-        <td>Masjid, gereja, pura</td>
-      </tr>
-      <tr>
-        <td><strong style="color:#fff">Politik</strong></td>
-        <td>Melembagakan norma, membuat UU, melindungi warga</td>
-        <td>DPR, pemerintah, partai politik</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ───────────── KLASIFIKASI ───────────── -->
-<section id="klasifikasi" class="section">
-  <h2 class="section-title">Klasifikasi Lembaga Sosial</h2>
-  <p class="section-sub">Menurut John Lewis & John Philip Gilin</p>
-
-  <div class="card">
-    <div class="card-label">a. Berdasarkan Nilai yang Diterima</div>
-    <ul style="margin-top:10px">
-      <li><strong style="color:#fff">Basic institution</strong> — lembaga primer yang mendasar. Contoh: keluarga.</li>
-      <li style="margin-top:6px"><strong style="color:#fff">Subsidiary institution</strong> — dianggap kurang penting. Contoh: tempat wisata.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="card-label">b. Berdasarkan Pengembangan</div>
-    <ul style="margin-top:10px">
-      <li><strong style="color:#fff">Crescive institution</strong> — tumbuh tidak direncanakan (dari adat). Contoh: KUA pada lembaga agama.</li>
-      <li style="margin-top:6px"><strong style="color:#fff">Enacted institution</strong> — sengaja dibentuk. Contoh: sekolah.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="card-label">c. Berdasarkan Penerimaan Masyarakat</div>
-    <ul style="margin-top:10px">
-      <li><strong style="color:#fff">Sanctioned institution</strong> — diterima masyarakat. Contoh: koperasi.</li>
-      <li style="margin-top:6px"><strong style="color:#fff">Unsanctioned institution</strong> — ditolak masyarakat. Contoh: organisasi kriminal.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="card-label">d. Berdasarkan Penyebaran</div>
-    <ul style="margin-top:10px">
-      <li><strong style="color:#fff">General institution</strong> — dikenal luas. Contoh: pengadilan.</li>
-      <li style="margin-top:6px"><strong style="color:#fff">Restricted institution</strong> — hanya dikenal sebagian. Contoh: aliran tertentu dalam agama.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="card-label">e. Berdasarkan Fungsinya</div>
-    <ul style="margin-top:10px">
-      <li><strong style="color:#fff">Operative institution</strong> — didirikan untuk tujuan tertentu. Contoh: pasar.</li>
-      <li style="margin-top:6px"><strong style="color:#fff">Regulative institution</strong> — mengawasi adat dan aturan. Contoh: lembaga kepolisian.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ───────────── KUIS ───────────── -->
-<section id="kuis" class="section">
-  <h2 class="section-title">Kuis Lembaga Sosial</h2>
-  <p class="section-sub">5 soal pilihan ganda — klik jawaban kamu!</p>
-
-  <div class="score-banner" id="scoreBanner">
-    <div class="score-num" id="scoreNum">0/5</div>
-    <p id="scoreMsg">Coba lagi untuk hasil lebih baik!</p>
-    <button class="reset-btn" onclick="resetQuiz()" style="margin-top:16px">Ulangi Kuis</button>
-  </div>
-
-  <!-- Q1 -->
-  <div class="quiz-card" data-answered="false">
-    <div class="q-num">Soal 1 dari 5</div>
-    <div class="q-text">Apa yang dimaksud dengan lembaga sosial?</div>
-    <div class="options">
-      <button class="opt-btn" onclick="answer(this, false, 0)"><span class="opt-letter">A</span> Tempat untuk berdagang</button>
-      <button class="opt-btn" onclick="answer(this, true, 0)"><span class="opt-letter">B</span> Kumpulan norma yang mengatur kehidupan masyarakat</button>
-      <button class="opt-btn" onclick="answer(this, false, 0)"><span class="opt-letter">C</span> Organisasi politik semata</button>
-      <button class="opt-btn" onclick="answer(this, false, 0)"><span class="opt-letter">D</span> Tempat hiburan masyarakat</button>
-    </div>
-    <div class="explanation">✅ Jawaban: B — Lembaga sosial adalah kumpulan norma (pranata sosial) yang mengatur interaksi dan kegiatan sosial masyarakat.</div>
-  </div>
-
-  <!-- Q2 -->
-  <div class="quiz-card" data-answered="false">
-    <div class="q-num">Soal 2 dari 5</div>
-    <div class="q-text">Berikut yang termasuk fungsi lembaga keluarga adalah ...</div>
-    <div class="options">
-      <button class="opt-btn" onclick="answer(this, false, 1)"><span class="opt-letter">A</span> Membuat undang-undang</button>
-      <button class="opt-btn" onclick="answer(this, false, 1)"><span class="opt-letter">B</span> Mengatur perdagangan internasional</button>
-      <button class="opt-btn" onclick="answer(this, true, 1)"><span class="opt-letter">C</span> Memberikan kasih sayang kepada anggota keluarga</button>
-      <button class="opt-btn" onclick="answer(this, false, 1)"><span class="opt-letter">D</span> Mengawasi tindak kriminal</button>
-    </div>
-    <div class="explanation">✅ Jawaban: C — Fungsi afeksi keluarga adalah memberikan kasih sayang dan kebahagiaan kepada anggotanya.</div>
-  </div>
-
-  <!-- Q3 -->
-  <div class="quiz-card" data-answered="false">
-    <div class="q-num">Soal 3 dari 5</div>
-    <div class="q-text">Lembaga pendidikan formal contohnya adalah ...</div>
-    <div class="options">
-      <button class="opt-btn" onclick="answer(this, false, 2)"><span class="opt-letter">A</span> Kursus musik</button>
-      <button class="opt-btn" onclick="answer(this, false, 2)"><span class="opt-letter">B</span> Keluarga</button>
-      <button class="opt-btn" onclick="answer(this, true, 2)"><span class="opt-letter">C</span> Sekolah</button>
-      <button class="opt-btn" onclick="answer(this, false, 2)"><span class="opt-letter">D</span> Lingkungan masyarakat</button>
-    </div>
-    <div class="explanation">✅ Jawaban: C — Sekolah adalah contoh pendidikan formal yang diselenggarakan secara sistematis, teratur, dan bertingkat.</div>
-  </div>
-
-  <!-- Q4 -->
-  <div class="quiz-card" data-answered="false">
-    <div class="q-num">Soal 4 dari 5</div>
-    <div class="q-text">Lembaga sosial yang bertujuan mengawasi adat istiadat dan aturan dalam masyarakat disebut ...</div>
-    <div class="options">
-      <button class="opt-btn" onclick="answer(this, false, 3)"><span class="opt-letter">A</span> Operative institution</button>
-      <button class="opt-btn" onclick="answer(this, false, 3)"><span class="opt-letter">B</span> Restricted institution</button>
-      <button class="opt-btn" onclick="answer(this, true, 3)"><span class="opt-letter">C</span> Regulative institution</button>
-      <button class="opt-btn" onclick="answer(this, false, 3)"><span class="opt-letter">D</span> Basic institution</button>
-    </div>
-    <div class="explanation">✅ Jawaban: C — Regulative institution berfungsi mengawasi adat istiadat. Contoh: lembaga kepolisian.</div>
-  </div>
-
-  <!-- Q5 -->
-  <div class="quiz-card" data-answered="false">
-    <div class="q-num">Soal 5 dari 5</div>
-    <div class="q-text">Berikut ini yang termasuk contoh sanctioned institution adalah ...</div>
-    <div class="options">
-      <button class="opt-btn" onclick="answer(this, false, 4)"><span class="opt-letter">A</span> Organisasi kriminal</button>
-      <button class="opt-btn" onclick="answer(this, true, 4)"><span class="opt-letter">B</span> Koperasi</button>
-      <button class="opt-btn" onclick="answer(this, false, 4)"><span class="opt-letter">C</span> Geng motor ilegal</button>
-      <button class="opt-btn" onclick="answer(this, false, 4)"><span class="opt-letter">D</span> Perjudian liar</button>
-    </div>
-    <div class="explanation">✅ Jawaban: B — Koperasi adalah sanctioned institution karena diterima dan membantu kebutuhan sehari-hari masyarakat.</div>
-  </div>
 </section>
 
 <script>
-  function showSection(id, btn) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('visible');
-    btn.classList.add('active');
-  }
 
-  const scores = [null, null, null, null, null];
+/* PARTICLES */
 
-  function answer(btn, isCorrect, qIndex) {
-    const card = btn.closest('.quiz-card');
-    if (card.dataset.answered === 'true') return;
-    card.dataset.answered = 'true';
+const particles = document.getElementById("particles");
 
-    const allBtns = card.querySelectorAll('.opt-btn');
-    allBtns.forEach(b => b.disabled = true);
+for(let i=0;i<60;i++){
 
-    if (isCorrect) {
-      btn.classList.add('correct');
-      scores[qIndex] = 1;
-    } else {
-      btn.classList.add('wrong');
-      scores[qIndex] = 0;
-      // show correct
-      allBtns.forEach(b => {
-        if (b.onclick.toString().includes('true')) b.classList.add('correct');
-      });
-    }
+    const span = document.createElement("span");
 
-    card.querySelector('.explanation').classList.add('show');
+    let size = Math.random()*8 + 4;
 
-    // check if all answered
-    if (scores.every(s => s !== null)) showScore();
-  }
+    span.style.width = size + "px";
+    span.style.height = size + "px";
 
-  function showScore() {
-    const total = scores.reduce((a,b) => a+b, 0);
-    const banner = document.getElementById('scoreBanner');
-    document.getElementById('scoreNum').textContent = total + '/5';
-    const msgs = ['Jangan menyerah, pelajari lagi materinya! 💪', 'Sudah cukup baik, tingkatkan lagi! 📚', 'Hampir sempurna, pertahankan! 🌟', 'Luar biasa! Kamu hebat! 🎉'];
-    document.getElementById('scoreMsg').textContent = msgs[Math.min(Math.floor(total/2), 3)];
-    banner.classList.add('show');
-    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+    span.style.left = Math.random()*100 + "%";
 
-  function resetQuiz() {
-    scores.fill(null);
-    document.getElementById('scoreBanner').classList.remove('show');
-    document.querySelectorAll('.quiz-card').forEach(card => {
-      card.dataset.answered = 'false';
-      card.querySelectorAll('.opt-btn').forEach(b => {
-        b.disabled = false;
-        b.classList.remove('correct', 'wrong');
-      });
-      card.querySelector('.explanation').classList.remove('show');
-    });
-  }
+    span.style.animationDuration =
+    (Math.random()*10 + 5) + "s";
+
+    span.style.animationDelay =
+    Math.random()*5 + "s";
+
+    particles.appendChild(span);
+}
+
+/* NEXT SLIDE */
+
+function nextSlide(){
+
+    document.getElementById("slide1")
+    .style.transform = "translateX(-100%)";
+
+    document.getElementById("slide2")
+    .style.transform = "translateX(0)";
+}
+
 </script>
+
 </body>
 </html>
