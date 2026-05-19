@@ -323,6 +323,260 @@ body{
     }
 }
 
+/* SLIDE 3 & 4 OFFSETS */
+
+#slide3, #slide4{
+    transform:translateX(100%);
+}
+
+/* SLIDE TITLE */
+
+.slide-title{
+    font-size:55px;
+    font-weight:800;
+    margin-bottom:30px;
+    text-align:center;
+    text-shadow:0 0 20px orange;
+}
+
+/* MATERI */
+
+.materi-wrap{
+    width:min(900px,92%);
+    max-height:70vh;
+    overflow-y:auto;
+    padding:10px 20px;
+}
+
+.materi-wrap::-webkit-scrollbar{
+    width:8px;
+}
+
+.materi-wrap::-webkit-scrollbar-thumb{
+    background:#ff8800;
+    border-radius:4px;
+}
+
+.materi-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,165,0,.35);
+    border-radius:20px;
+    padding:22px 26px;
+    margin-bottom:18px;
+    backdrop-filter:blur(10px);
+}
+
+.materi-card h3{
+    color:#ffb347;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.materi-card p,
+.materi-card li{
+    font-size:15px;
+    line-height:1.7;
+    color:#f0d9b5;
+}
+
+.materi-card ul{
+    padding-left:22px;
+    margin-top:6px;
+}
+
+.materi-card li{
+    margin-bottom:6px;
+}
+
+.materi-card strong{
+    color:#ffe7a0;
+}
+
+/* QUIZ */
+
+.quiz-wrap{
+    width:min(720px,92%);
+    max-height:70vh;
+    overflow-y:auto;
+    padding:10px;
+}
+
+.quiz-wrap::-webkit-scrollbar{
+    width:8px;
+}
+
+.quiz-wrap::-webkit-scrollbar-thumb{
+    background:#ff8800;
+    border-radius:4px;
+}
+
+.quiz-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,165,0,.35);
+    border-radius:20px;
+    padding:22px 24px;
+    margin-bottom:18px;
+    backdrop-filter:blur(10px);
+}
+
+.q-num{
+    color:#ffb347;
+    font-size:12px;
+    letter-spacing:.12em;
+    font-weight:600;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.q-text{
+    font-size:17px;
+    font-weight:600;
+    margin-bottom:16px;
+    line-height:1.5;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.opt{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 16px;
+    background:rgba(0,0,0,.3);
+    border:1px solid rgba(255,165,0,.25);
+    border-radius:12px;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+    text-align:left;
+    transition:.2s;
+    font-family:'Poppins',sans-serif;
+}
+
+.opt:hover:not(:disabled){
+    border-color:orange;
+    background:rgba(255,140,0,.15);
+}
+
+.opt-letter{
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:rgba(255,165,0,.2);
+    color:#ffb347;
+    display:grid;
+    place-items:center;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.opt.correct{
+    background:rgba(63,185,80,.15);
+    border-color:#3fb950;
+    color:#d6ffe1;
+}
+
+.opt.correct .opt-letter{
+    background:#3fb950;
+    color:white;
+}
+
+.opt.wrong{
+    background:rgba(248,81,73,.15);
+    border-color:#f85149;
+    color:#ffd6d6;
+}
+
+.opt.wrong .opt-letter{
+    background:#f85149;
+    color:white;
+}
+
+.opt:disabled{
+    cursor:default;
+}
+
+.explain{
+    display:none;
+    margin-top:14px;
+    padding:12px 16px;
+    background:rgba(63,185,80,.1);
+    border:1px solid rgba(63,185,80,.3);
+    border-radius:10px;
+    color:#b4f0c4;
+    font-size:13.5px;
+    line-height:1.6;
+}
+
+.explain.show{
+    display:block;
+}
+
+.score-banner{
+    display:none;
+    text-align:center;
+    background:linear-gradient(135deg,rgba(255,140,0,.2),rgba(255,140,0,.05));
+    border:1px solid orange;
+    border-radius:20px;
+    padding:24px;
+    margin-bottom:20px;
+}
+
+.score-banner.show{
+    display:block;
+}
+
+.score-num{
+    font-size:50px;
+    font-weight:800;
+    color:orange;
+    text-shadow:0 0 20px orange;
+}
+
+.score-msg{
+    color:#ffd8a8;
+    margin-top:6px;
+}
+
+/* SLIDE NAV */
+
+.slide-nav{
+    position:absolute;
+    bottom:30px;
+    display:flex;
+    gap:14px;
+    z-index:5;
+}
+
+.nav-btn{
+    padding:12px 30px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff9500,#ff5e00);
+    color:white;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+    box-shadow:0 0 18px orange;
+    transition:.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+.nav-btn:hover{
+    transform:scale(1.06);
+}
+
+.nav-btn.ghost{
+    background:transparent;
+    border:2px solid orange;
+    box-shadow:none;
+    color:#ffb347;
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
@@ -333,6 +587,10 @@ body{
 
     .team-title{
         font-size:40px;
+    }
+
+    .slide-title{
+        font-size:36px;
     }
 
     .cards{
@@ -439,6 +697,157 @@ body{
 
     </div>
 
+    <div class="slide-nav">
+        <button class="nav-btn ghost" onclick="prevSlide()">← Kembali</button>
+        <button class="nav-btn" onclick="nextSlide()">Lanjut ke Materi →</button>
+    </div>
+
+</section>
+
+<!-- SLIDE 3 : MATERI -->
+
+<section class="slide" id="slide3">
+
+    <div class="slide-title">
+        RANGKUMAN MATERI
+    </div>
+
+    <div class="materi-wrap">
+
+        <div class="materi-card">
+            <h3>📖 Pengertian</h3>
+            <p>Lembaga sosial adalah kumpulan norma-norma yang mengatur interaksi/kegiatan sosial dalam masyarakat.</p>
+        </div>
+
+        <div class="materi-card">
+            <h3>✨ Karakteristik Lembaga Sosial</h3>
+            <p>Mempunyai simbol, tata tertib &amp; tradisi, usia lebih lama dari anggotanya, alat kelengkapan, ideologi, dan tingkat daya tahan.</p>
+        </div>
+
+        <div class="materi-card">
+            <h3>🎯 Tujuan &amp; Fungsi</h3>
+            <ul>
+                <li><strong>Fungsi manifes</strong> — fungsi yang disadari (contoh: keluarga sebagai tempat internalisasi nilai)</li>
+                <li><strong>Fungsi laten</strong> — fungsi tersembunyi (contoh: sekolah menjauhkan anak dari pernikahan dini)</li>
+            </ul>
+        </div>
+
+        <div class="materi-card">
+            <h3>🏛️ Jenis-jenis Lembaga Sosial</h3>
+            <ul>
+                <li><strong>Keluarga</strong> → reproduksi, ekonomi, proteksi, sosialisasi, afeksi</li>
+                <li><strong>Pendidikan</strong> → formal (sekolah), nonformal (kursus), informal (keluarga)</li>
+                <li><strong>Ekonomi</strong> → produksi, distribusi, pelayanan jasa</li>
+                <li><strong>Agama</strong> → pedoman hidup, identitas, mengatur tata kelakuan</li>
+                <li><strong>Politik</strong> → melembagakan norma, merancang UU, menyelesaikan konflik</li>
+            </ul>
+        </div>
+
+        <div class="materi-card">
+            <h3>📊 Klasifikasi</h3>
+            <ul>
+                <li>Berdasarkan nilai: <strong>basic</strong> (primer) vs <strong>subsidiary</strong> (sekunder)</li>
+                <li>Berdasarkan pengembangan: <strong>crescive</strong> (tumbuh alami) vs <strong>enacted</strong> (dibentuk sengaja)</li>
+                <li>Berdasarkan penerimaan: <strong>sanctioned</strong> (diterima) vs <strong>unsanctioned</strong> (ditolak)</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="slide-nav">
+        <button class="nav-btn ghost" onclick="prevSlide()">← Kembali</button>
+        <button class="nav-btn" onclick="nextSlide()">Mulai Quiz →</button>
+    </div>
+
+</section>
+
+<!-- SLIDE 4 : QUIZ -->
+
+<section class="slide" id="slide4">
+
+    <div class="slide-title">
+        QUIZ LEMBAGA SOSIAL
+    </div>
+
+    <div class="quiz-wrap">
+
+        <div class="score-banner" id="scoreBanner">
+            <div class="score-num" id="scoreNum">0/5</div>
+            <p class="score-msg" id="scoreMsg">Coba lagi ya!</p>
+            <button class="nav-btn ghost" onclick="resetQuiz()" style="margin-top:14px">Ulangi Quiz</button>
+        </div>
+
+        <!-- Q1 -->
+        <div class="quiz-card" data-q="0" data-answered="false">
+            <div class="q-num">Soal 1 dari 5</div>
+            <div class="q-text">Apa yang dimaksud dengan lembaga sosial?</div>
+            <div class="options">
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">A</span> Tempat untuk berdagang</button>
+                <button class="opt" data-correct="true" onclick="answer(this)"><span class="opt-letter">B</span> Kumpulan norma yang mengatur kehidupan masyarakat</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">C</span> Organisasi politik semata</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">D</span> Tempat hiburan masyarakat</button>
+            </div>
+            <div class="explain">✅ Jawaban: B — Lembaga sosial adalah kumpulan norma yang mengatur interaksi/kegiatan sosial masyarakat.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card" data-q="1" data-answered="false">
+            <div class="q-num">Soal 2 dari 5</div>
+            <div class="q-text">Berikut yang termasuk fungsi lembaga keluarga adalah ...</div>
+            <div class="options">
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">A</span> Membuat undang-undang</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">B</span> Mengatur perdagangan internasional</button>
+                <button class="opt" data-correct="true" onclick="answer(this)"><span class="opt-letter">C</span> Memberikan kasih sayang kepada anggota keluarga</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">D</span> Mengawasi tindak kriminal</button>
+            </div>
+            <div class="explain">✅ Jawaban: C — Fungsi afeksi keluarga adalah memberikan kasih sayang kepada anggotanya.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card" data-q="2" data-answered="false">
+            <div class="q-num">Soal 3 dari 5</div>
+            <div class="q-text">Lembaga pendidikan formal contohnya adalah ...</div>
+            <div class="options">
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">A</span> Kursus musik</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">B</span> Keluarga</button>
+                <button class="opt" data-correct="true" onclick="answer(this)"><span class="opt-letter">C</span> Sekolah</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">D</span> Lingkungan masyarakat</button>
+            </div>
+            <div class="explain">✅ Jawaban: C — Sekolah adalah contoh pendidikan formal yang diselenggarakan secara sistematis dan bertingkat.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card" data-q="3" data-answered="false">
+            <div class="q-num">Soal 4 dari 5</div>
+            <div class="q-text">Lembaga sosial yang bertujuan mengawasi adat istiadat dan aturan dalam masyarakat disebut ...</div>
+            <div class="options">
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">A</span> Operative institution</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">B</span> Restricted institution</button>
+                <button class="opt" data-correct="true" onclick="answer(this)"><span class="opt-letter">C</span> Regulative institution</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">D</span> Basic institution</button>
+            </div>
+            <div class="explain">✅ Jawaban: C — Regulative institution berfungsi mengawasi adat istiadat. Contoh: lembaga kepolisian.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card" data-q="4" data-answered="false">
+            <div class="q-num">Soal 5 dari 5</div>
+            <div class="q-text">Berikut ini yang termasuk contoh sanctioned institution adalah ...</div>
+            <div class="options">
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">A</span> Organisasi kriminal</button>
+                <button class="opt" data-correct="true" onclick="answer(this)"><span class="opt-letter">B</span> Koperasi</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">C</span> Geng motor ilegal</button>
+                <button class="opt" data-correct="false" onclick="answer(this)"><span class="opt-letter">D</span> Perjudian liar</button>
+            </div>
+            <div class="explain">✅ Jawaban: B — Koperasi diterima masyarakat karena membantu kebutuhan sehari-hari.</div>
+        </div>
+
+    </div>
+
+    <div class="slide-nav">
+        <button class="nav-btn ghost" onclick="prevSlide()">← Kembali</button>
+    </div>
+
 </section>
 
 <script>
@@ -467,15 +876,93 @@ for(let i=0;i<60;i++){
     particles.appendChild(span);
 }
 
-/* NEXT SLIDE */
+/* SLIDE NAVIGATION */
 
-function nextSlide(){
+let currentSlide = 1;
+const TOTAL_SLIDES = 4;
 
-    document.getElementById("slide1")
-    .style.transform = "translateX(-100%)";
+function showSlide(n){
+    currentSlide = Math.max(1, Math.min(TOTAL_SLIDES, n));
+    for(let i=1; i<=TOTAL_SLIDES; i++){
+        const el = document.getElementById("slide"+i);
+        if(!el) continue;
+        if(i < currentSlide){
+            el.style.transform = "translateX(-100%)";
+        } else if(i > currentSlide){
+            el.style.transform = "translateX(100%)";
+        } else {
+            el.style.transform = "translateX(0)";
+        }
+    }
+}
 
-    document.getElementById("slide2")
-    .style.transform = "translateX(0)";
+function nextSlide(){ showSlide(currentSlide + 1); }
+function prevSlide(){ showSlide(currentSlide - 1); }
+
+/* QUIZ */
+
+const answers = [null, null, null, null, null];
+
+function answer(btn){
+    const card = btn.closest(".quiz-card");
+    if(card.dataset.answered === "true") return;
+    card.dataset.answered = "true";
+
+    const qi = parseInt(card.dataset.q, 10);
+    const isCorrect = btn.dataset.correct === "true";
+    const opts = card.querySelectorAll(".opt");
+
+    opts.forEach(o => o.disabled = true);
+
+    if(isCorrect){
+        btn.classList.add("correct");
+        answers[qi] = 1;
+    } else {
+        btn.classList.add("wrong");
+        answers[qi] = 0;
+        opts.forEach(o => {
+            if(o.dataset.correct === "true") o.classList.add("correct");
+        });
+    }
+
+    card.querySelector(".explain").classList.add("show");
+
+    if(answers.every(a => a !== null)) showScore();
+}
+
+function showScore(){
+    const total = answers.reduce((a,b) => a + b, 0);
+    const banner = document.getElementById("scoreBanner");
+
+    document.getElementById("scoreNum").textContent = total + "/5";
+
+    const msgs = [
+        "Jangan menyerah, pelajari lagi materinya! 💪",
+        "Masih bisa lebih baik, semangat! 📚",
+        "Lumayan, tingkatkan lagi! 🌟",
+        "Bagus sekali, hampir sempurna! 🔥",
+        "Keren, hampir sempurna banget! 🚀",
+        "Sempurna! Kamu hebat! 🏆"
+    ];
+
+    document.getElementById("scoreMsg").textContent = msgs[total];
+
+    banner.classList.add("show");
+    banner.scrollIntoView({ behavior:"smooth", block:"start" });
+}
+
+function resetQuiz(){
+    answers.fill(null);
+    document.getElementById("scoreBanner").classList.remove("show");
+
+    document.querySelectorAll(".quiz-card").forEach(card => {
+        card.dataset.answered = "false";
+        card.querySelectorAll(".opt").forEach(o => {
+            o.disabled = false;
+            o.classList.remove("correct","wrong");
+        });
+        card.querySelector(".explain").classList.remove("show");
+    });
 }
 
 </script>
